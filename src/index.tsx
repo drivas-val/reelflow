@@ -7,6 +7,7 @@ import { RMPPage } from './pages/RMPPage';
 import { FolioPage } from './pages/FolioPage';
 import { ComparePage } from './pages/ComparePage';
 import { SubmitPage } from './pages/SubmitPage';
+import { RMPSubmit } from './components/RMPSubmit';
 
 import {
   createBrowserRouter,
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "SubmitPage",
     element: <SubmitPage/>
+  },
+  {
+    path: "RMPSubmit",
+    element: <RMPSubmit/>
   },
 
   
