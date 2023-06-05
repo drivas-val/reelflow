@@ -1,5 +1,6 @@
 import "./Styles.css"
 import {useState, useEffect} from 'react' //j
+import { randomBytes } from "crypto";
 
 interface Global {
     x: number;
@@ -17,6 +18,7 @@ type MovieType = {
     first_air_date: string
     vote_average:string
     overview: string
+    total_pages: number
 };
 
 
@@ -26,6 +28,7 @@ type SlideProps = {
 }
 
 export let SingleMovie = (props:SlideProps) => {
+    var randSlide = Math.floor(0 + Math.random()*(20 - 0 + 1))
 
     const [movs, setMovs] = useState<MovieType[]>([])
     
@@ -52,12 +55,12 @@ export let SingleMovie = (props:SlideProps) => {
     return(
     <div>
         <h3 className='sliderTitle'>{props.title}</h3>  
-        <div className='sliderStyle'>
-            <img className='posterStyle' src={`https://image.tmdb.org/t/p/w1280${movs[0].poster_path}`} alt="/"/>
+        <div className='overlayPos'>
+            <img className='posterStyleSingle' src={`https://image.tmdb.org/t/p/w1280${movs[randSlide].poster_path}`} alt="/"/>
             <div className='imageOverlay'>
-                <p className='overlayName'>{movs[0].title || movs[0].name}</p>
-                <p className='overlayDate'>Release Date: {movs[0].release_date || movs[0].first_air_date}</p>
-                <p className='overlayRating'>Rating: {Number(movs[0].vote_average).toPrecision(2)}</p>
+                <p className='overlayName'>{movs[randSlide].title || movs[randSlide].name}</p>
+                <p className='overlayDate'>Release Date: {movs[randSlide].release_date || movs[randSlide].first_air_date}</p>
+                <p className='overlayRating'>Rating: {Number(movs[randSlide].vote_average).toPrecision(2)}</p>
                 <p className='overlayDescription'> Description: {movs[0].overview} </p>
             </div> 
         </div>             

@@ -17,6 +17,7 @@ type MovieType = {
     first_air_date: string
     vote_average:string
     overview: string
+    total_pages: number
 };
 
 

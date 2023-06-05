@@ -5,7 +5,7 @@ export type OptionType = {
 
 export const genres= [
     {
-        value: "",
+        value: "101",
         label: "Any"
     },
     {

@@ -80,6 +80,11 @@ Slider Content
     border-right: 2px solid #DC143C;
 }
 
+.posterStyleSingle{
+    width: 250px;
+    padding: 10px;
+}
+
 
 .sliderTitle {
     margin-left: 10px;
@@ -162,4 +167,60 @@ Text overlay over hover
 ::-webkit-scrollbar-thumb {
     background-color: white;
     border-radius: 10px;
+}
+
+.RMPSearchStyle {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15px;
+    }
+
+.SwitchStyle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.SwitchStyle input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+}
+
+.ToggleStyle {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:#ccc;
+    transition: 0.5s;
+}
+
+.ToggleStyle:before{
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .5s;
+
+}
+
+input:checked + .ToggleStyle{
+    background-color: lightgreen;
+}
+
+input:checked + .ToggleStyle:before {
+    transform: translateX(26px);
 }
