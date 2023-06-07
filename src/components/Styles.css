@@ -57,7 +57,7 @@ Body
 
 .bodyStyle{
     width: 100%;
-    height: 100%;
+    height: 105%;
     background-color: black;
 }
 
@@ -90,6 +90,15 @@ Slider Content
     margin-left: 10px;
     color: #DC143C;
     font-size: 25px;
+}
+
+
+
+.bookMarkButton {
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 30px;
 }
 
 /*

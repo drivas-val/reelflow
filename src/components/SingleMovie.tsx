@@ -10,7 +10,7 @@ export const global = {
     x:0,
 } as Global;
 
-type MovieType = {
+export type MovieType = {
     title: string
     poster_path: string
     name: string

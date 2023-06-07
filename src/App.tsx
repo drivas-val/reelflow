@@ -3,6 +3,7 @@ import './App.css';
 import './components/Styles.css'
 import {Header} from './components/Header'
 import {Body} from './components/Body'
+import { GlobalProvider } from './context/GlobalState';
 
 
 //import {Greet} from './components/Greet'
@@ -11,26 +12,17 @@ import {Body} from './components/Body'
 // import {Input} from './components/Input'
 // import {Container} from './components/Container'
 // import {Form} from './components/Form'
-import {MovSearch} from './components/MovSearch'
 
 
 
 function App() {
   return (
+    <GlobalProvider>
     <div className="App">
       <Header title="Reel Flow"/>
       <Body/>
-
-      {/* <Greet name = "Bravo" age = {10} isLoggedIn={true}/>
-      <Status status="loading"/>
-      <Button handleClick={() => {
-        console.log("Clicked!");
-      }}/>
-      <Input value='' handleChange={(event) => console.log(event)}/>
-      <Container styles={{border:"1px solid black"}}></Container>
-      <Form/>
-      <MovSearch/> */}
     </div>
+    </GlobalProvider>
   );
 }
 
