@@ -19,6 +19,7 @@ export type MovieType = {
     vote_average:string
     overview: string
     total_pages: number
+    id: number
 };
 
 

@@ -233,3 +233,12 @@ input:checked + .ToggleStyle{
 input:checked + .ToggleStyle:before {
     transform: translateX(26px);
 }
+
+.folioDiv {
+    background-color: black;
+    height: fit-content;
+}
+
+.folioAlign{
+    display: inline-flex;
+}

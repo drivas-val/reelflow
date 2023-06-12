@@ -1,5 +1,5 @@
 import "./Styles.css"
-import {useState, useEffect, FormEvent, useContext} from 'react' 
+import {useState, useEffect, FormEvent, useContext, MouseEvent} from 'react' 
 import {BsFillBookmarkFill} from 'react-icons/bs'
 import {GlobalContext} from '../context/GlobalState'
 
@@ -11,7 +11,7 @@ export const global = {
     x:0,
 } as Global;
 
-type MovieType = {
+export type MovieType = {
     title: string
     poster_path: string
     name: string
@@ -20,6 +20,7 @@ type MovieType = {
     vote_average:string
     overview: string
     total_pages: number
+    id: number
 };
 
 
@@ -30,9 +31,13 @@ type SlideProps = {
 
 export let Slide = (props:SlideProps) => {
 
-    const {addMovie} = useContext(GlobalContext)
+    const {addMovie, folioList} = useContext(GlobalContext)
 
     const [movs, setMovs] = useState<MovieType[]>([])
+
+    var folioListDisabled = false;
+
+    
     
     useEffect(() =>{
         fetch(props.source)
@@ -54,12 +59,12 @@ export let Slide = (props:SlideProps) => {
         return null;
     }
 
-    const handleClick = (event:FormEvent) => {
+    const handleClick = (event:MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
+        let storedMovie = folioList.find(o => o.id === movs[Number(event.currentTarget.id)].id)
+        folioListDisabled = storedMovie ? true : false
+        console.log(folioListDisabled)
         addMovie(movs[Number(event.currentTarget.id)])
-        console.log("Was Clicked")
-        console.log(event.currentTarget.id)
-        console.log(movs[Number(event.currentTarget.id)])
     }
 
     var idNum:number = -1
@@ -75,9 +80,7 @@ export let Slide = (props:SlideProps) => {
                     <div key={mov.title} className='overlayPos'>
                     <img className='posterStyle' src={`https://www.theprytania.com/template_1/img/default-movie-portrait.jpg`} alt="/"/>
                     <div className='imageOverlay'>
-
-                            
-
+                    <button onClick={handleClick} id={idNum.toString()} className="bookMarkButton" type="button" disabled={folioListDisabled}><BsFillBookmarkFill/></button>
                             <p className='overlayName'>{mov.title || mov.name}</p>
                             <p className='overlayDate'>Release Date: {mov.release_date || mov.first_air_date}</p>
                             <p className='overlayRating'>Rating: {Number(mov.vote_average).toPrecision(2)}</p>
@@ -93,10 +96,7 @@ export let Slide = (props:SlideProps) => {
                     <div key={mov.title} className='overlayPos'>
                         <img className='posterStyle' src={`https://image.tmdb.org/t/p/w1280${mov.poster_path}`} alt="/"/>
                         <div className='imageOverlay'>
-                            <form onSubmit={handleClick} id={idNum.toString()}>
-                            <button className="bookMarkButton" type="submit"><BsFillBookmarkFill/></button>
-                            </form>
-
+                            <button onClick={handleClick} id={idNum.toString()} className="bookMarkButton" type="button" disabled={folioListDisabled}><BsFillBookmarkFill/></button>
                             <p className='overlayName'>{mov.title || mov.name}</p>
                             <p className='overlayDate'>Release Date: {mov.release_date || mov.first_air_date}</p>
                             <p className='overlayRating'>Rating: {Number(mov.vote_average).toPrecision(2)}</p>
