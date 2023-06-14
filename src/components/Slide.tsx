@@ -21,6 +21,17 @@ export type MovieType = {
     overview: string
     total_pages: number
     id: number
+    idNum: number
+
+    overall_personal: string
+    orginality: string
+    creativity: string
+    plot: string
+    pacing: string
+    structure: string
+    characters: string
+    cinematography: string
+    entertainment: string
 };
 
 

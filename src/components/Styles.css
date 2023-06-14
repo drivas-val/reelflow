@@ -117,7 +117,7 @@ Image Overlay over hover for text
     display: flex;
     margin-top: 10px;
     overflow-x: scroll;
-    
+
 }
 
 .imageOverlay:hover{
@@ -241,4 +241,14 @@ input:checked + .ToggleStyle:before {
 
 .folioAlign{
     display: inline-flex;
+}
+
+.editButton{
+    color: white;
+    font-size: 15px;
+    background-color: red;
+    border: none;
+    border-radius: 3vmin;
+    margin-left: 70%;
+    margin-top: 4%;
 }
