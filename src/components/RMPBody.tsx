@@ -50,7 +50,6 @@ export let RMPBody = () => {
             paramList.push(param.language)
             paramList.push(param.releaseYear)
             paramList.push(isToggled)
-            event.preventDefault();
             navigate("/RMPSubmit", {state:paramList})
             window.location.reload()
         }
@@ -66,7 +65,6 @@ export let RMPBody = () => {
             paramList.push(param.language)
             paramList.push(param.releaseYear)
             paramList.push(isToggled)
-            event.preventDefault();
             navigate("/RMPSubmit", {state:paramList})
             window.location.reload()
         }

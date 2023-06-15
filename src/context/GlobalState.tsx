@@ -6,14 +6,14 @@ type initialStateType = {
     folioList:  MovieType[];
     ratedList: MovieType[];
     addMovie: (movie:any) => void;
-    removeMovie: (id:any) => void;
+    removeMovie: (movie:any) => void;
 }
 
 const initialState: initialStateType = {
     folioList: localStorage.getItem('folioList') ? JSON.parse(localStorage.getItem('folioList') as string) : [],
     ratedList: localStorage.getItem('ratedList') ? JSON.parse(localStorage.getItem('ratedList') as string) : [],
     addMovie: (movie:any) => {},
-    removeMovie: (id:any) => {}
+    removeMovie: (movie:any) => {}
 }
 
 

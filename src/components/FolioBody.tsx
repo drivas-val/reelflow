@@ -31,16 +31,15 @@ export let FolioBody = () => {
     const {addMovie, folioList, removeMovie} = useContext(GlobalContext)
 
     const [movs, setMovs] = useState<MovieType[]>([])
-    
-    console.log(folioList)
 
-    folioList.filter((value, index) => folioList.indexOf(value) === index)
-
-    const handleClick = (event:MouseEvent<HTMLButtonElement>) => {
+    const handleClick = (event:MouseEvent<HTMLButtonElement>, movId: number) => {
         event.preventDefault()
 
         //This doesn't work!
-        removeMovie(movs[Number(event.currentTarget.id)].id)
+        const movie = folioList.find((m) => m.id == movId);
+        if (movie) {
+            removeMovie(movie)
+        }
     }
 
     return(
@@ -51,7 +50,7 @@ export let FolioBody = () => {
                 <div key={mov.title} className='overlayPos'>
                 <img className='posterStyle' src={`https://image.tmdb.org/t/p/w1280${mov.poster_path}`} alt="/"/>
                     <div className='imageOverlay'>
-                        <button onClick={handleClick} className="editButton" type="button"> Edit</button>
+                        <button onClick={(e) => handleClick(e, mov.id)} className="editButton" type="button"> Edit</button>
                         <p className='overlayName'>{mov.title || mov.name}</p>
                         <p className='overlayRating'>Community Rating: {Number(mov.vote_average).toPrecision(2)}</p>
                         <p className='overlayRating'> Overall Personal Rating: {mov.overall_personal} <input></input> </p>
