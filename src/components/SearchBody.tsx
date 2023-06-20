@@ -6,6 +6,9 @@ type SearchProps = {
     input: string
 }
 
+/*
+Shows the potentially wanted movies and show titles submitted in Search. 
+*/
 export let SearchBody = (props:SearchProps) => {
 
     let name = props.input;

@@ -5,6 +5,11 @@ import "./Styles.css"
 import { useNavigate } from "react-router-dom";
 
 
+/*
+Search for any valid movie/show.
+Search Input for Header.
+On Submit navigates to new page.
+*/
 export let Search = () => {
     let [input, setInput] = useState("");
 
@@ -13,8 +18,8 @@ export let Search = () => {
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         navigate("/SubmitPage", {state:input})
+        //Reload to avoid blank page. (Alerts on error)
         window.location.reload()
-        // {input}
 
     }
 

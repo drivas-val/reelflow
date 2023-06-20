@@ -11,6 +11,11 @@ export const global = {
     x:0,
 } as Global;
 
+/*
+Contains movie attributes including 
+base ratings. 
+*/
+
 export type MovieType = {
     title: string
     poster_path: string
@@ -23,15 +28,15 @@ export type MovieType = {
     id: number
     idNum: number
 
-    overall_personal: string
-    orginality: string
-    creativity: string
-    plot: string
-    pacing: string
-    structure: string
-    characters: string
-    cinematography: string
-    entertainment: string
+    overall_personal: string | undefined
+    originality: string | undefined
+    creativity: string | undefined 
+    plot: string | undefined
+    pacing: string | undefined
+    structure: string | undefined
+    characters: string | undefined
+    cinematography: string | undefined
+    entertainment: string | undefined
 };
 
 
@@ -40,6 +45,11 @@ type SlideProps = {
     source: string;
 }
 
+/*
+Creates a single verticle slide with 
+values returned from the API.
+Any API request that cna be mapped is valid. 
+*/
 export let Slide = (props:SlideProps) => {
 
     const {addMovie, folioList} = useContext(GlobalContext)

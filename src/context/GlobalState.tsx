@@ -19,6 +19,9 @@ const initialState: initialStateType = {
 
 export const GlobalContext = createContext(initialState)
 
+/*
+Global Provider Wrapped in main App (App.tsx)
+*/
 export const GlobalProvider = (props:any) => {
     const [state, dispatch] = useReducer(AppReducer, initialState)
 

@@ -17,6 +17,10 @@ import { ComparePage } from './pages/ComparePage';
 import { SubmitPage } from './pages/SubmitPage';
 import { RMPSubmit } from './components/RMPSubmit';
 
+/*
+Router Paths 
+*/
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,6 +50,10 @@ const router = createBrowserRouter([
   
 ]);
 
+/*
+Global provider wrapped
+Main App in index.ts (passed as prop here)
+*/
 function App() {
   return (
     <GlobalProvider>

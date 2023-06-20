@@ -5,7 +5,9 @@ type ToggleProps = {
     onToggle: any
 }
 
-
+/*
+Toggle button for boolean values. 
+*/
 const Switch = (props: ToggleProps) => {
     return (
         <label className="SwitchStyle">

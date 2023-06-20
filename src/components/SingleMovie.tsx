@@ -10,6 +10,9 @@ export const global = {
     x:0,
 } as Global;
 
+/*
+Contains movie attributes 
+*/
 export type MovieType = {
     title: string
     poster_path: string
@@ -27,6 +30,11 @@ type SlideProps = {
     title: string;
     source: string;
 }
+
+/*
+If toggle filter for Single Result in RMPBody is set to true,
+a random result will be given. 
+*/
 
 export let SingleMovie = (props:SlideProps) => {
     var randSlide = Math.floor(0 + Math.random()*(20 - 0 + 1))
@@ -55,6 +63,7 @@ export let SingleMovie = (props:SlideProps) => {
     
     return(
     <div>
+        
         <h3 className='sliderTitle'>{props.title}</h3>  
         <div className='overlayPos'>
             <img className='posterStyleSingle' src={`https://image.tmdb.org/t/p/w1280${movs[randSlide].poster_path}`} alt="/"/>
@@ -62,7 +71,7 @@ export let SingleMovie = (props:SlideProps) => {
                 <p className='overlayName'>{movs[randSlide].title || movs[randSlide].name}</p>
                 <p className='overlayDate'>Release Date: {movs[randSlide].release_date || movs[randSlide].first_air_date}</p>
                 <p className='overlayRating'>Rating: {Number(movs[randSlide].vote_average).toPrecision(2)}</p>
-                <p className='overlayDescription'> Description: {movs[0].overview} </p>
+                <p className='overlayDescription'> Description: {movs[randSlide].overview} </p>
             </div> 
         </div>             
     </div>

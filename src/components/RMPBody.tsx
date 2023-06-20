@@ -16,7 +16,10 @@ type ParamType = {
 };
 
 
-
+/*
+RMP Body => filtering method to choose from a specific
+set of movies currently 25
+*/
 export let RMPBody = () => {
     const [param, setParam] = useState<ParamType>({});
     let [input, setInput] = useState("");
@@ -29,7 +32,6 @@ export let RMPBody = () => {
         setParam((p) => {
             return {...p, genre: selectedGenre?.value}
         })
-        // paramList[0] = (selectedGenre?.value)
     }
 
 
@@ -39,9 +41,8 @@ export let RMPBody = () => {
         setParam((p) => {
             return {...p, language: selectedLanguage?.value}
         })
-        // paramList[0] = (selectedGenre?.value)
     }
-
+    //Any release year (default)
     const handleSubmit = (event:FormEvent) =>{
         param.releaseYear = input
         if (param.releaseYear === "Any" || param.releaseYear === ""){
@@ -53,12 +54,14 @@ export let RMPBody = () => {
             navigate("/RMPSubmit", {state:paramList})
             window.location.reload()
         }
+        //Ensure release year set by user valid
         else if (!isNaN(parseInt(param.releaseYear)) == false || Number(param.releaseYear) > 2023 || Number(param.releaseYear) < 1922) {
             console.log(param.releaseYear)
             window.location.reload()
             alert("Release Year must be a number less than or equal to current year and greater than 1922")
             navigate("/RMPPage")
         }
+        //Valid release year set
         else{
             var paramList:any[] = []
             paramList.push(param.genre)
@@ -69,7 +72,6 @@ export let RMPBody = () => {
             window.location.reload()
         }
     }
-
 
     return(
         <div className="bodyStyle">

@@ -5,6 +5,10 @@ type HeaderProps = {
     title: string
 }
 
+/*
+Header used in all pages. 
+New Paths can be added through App.tsx for new header buttons
+*/
 export let Header = (props:HeaderProps) => {
     return(
         <div className="headerStyle">

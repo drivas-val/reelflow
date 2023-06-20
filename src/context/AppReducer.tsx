@@ -1,6 +1,8 @@
 import {MovieType} from "../components/Slide"
 
-
+/*
+Global Action by case
+*/
 export default (state:any, action:any) => {
 
 

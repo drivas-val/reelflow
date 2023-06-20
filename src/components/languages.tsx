@@ -3,6 +3,12 @@ export type OptionType = {
     label: string;
   };
 
+  /*    
+  Available languages for filter use. 
+  API call uses abbreviated value.
+  Label is used for option-building
+  */
+
 export const languages= [
     {
         value: "101",
@@ -42,6 +48,7 @@ export const languages= [
     },
 ]
 
+//Mapped languages for use. 
 export let Languages = () => {
     return (
         <>

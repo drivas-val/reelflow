@@ -2,6 +2,9 @@ import "./Styles.css"
 import {Slide} from './Slide'
 import { Header } from "./Header"
 
+/*
+Home Page containing popular titles
+*/
 export let Body = () => {
     return(
         <div className="bodyStyle">

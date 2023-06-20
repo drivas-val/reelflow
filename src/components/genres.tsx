@@ -3,6 +3,12 @@ export type OptionType = {
     label: string;
   };
 
+ /*
+ TMDB sets a value type to a genre.
+ Genre is passed as an API call parameter using value. 
+ Label is for option-building
+ */
+
 export const genres= [
     {
         value: "101",
@@ -82,6 +88,7 @@ export const genres= [
     }
 ]
 
+//Map Genres for usage
 export let Genres = () => {
     return (
         <>

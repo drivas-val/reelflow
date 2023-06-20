@@ -5,8 +5,10 @@ import {Slide} from '../components/Slide'
 import { SingleMovie } from './SingleMovie'
 
 
-
-
+/*
+Gives list of movies and shows given 
+the filters in RMPBody. 
+*/
 export let RMPSubmit = () => {
     const {state} = useLocation()
 
@@ -16,6 +18,7 @@ export let RMPSubmit = () => {
     (state[1] === "101" || state[1] === undefined) ? (originalLanguage = "") : (originalLanguage = `&with_original_language=${state[1]}`);
     (state[2] === "Any" || state[2] === undefined) ? (releaseYear = "") : (releaseYear=`&primary_release_year=${state[2]}`);
     
+    //Single toggle button set to true (Picks at random)
     if (state[3] == true){
         return (
         <div className="bodyStyle">
@@ -24,6 +27,7 @@ export let RMPSubmit = () => {
         </div>
         )
     }
+    //Single Toggle Button set to False
     else {
         return(
             <div className="bodyStyle">
