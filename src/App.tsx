@@ -16,6 +16,7 @@ import { FolioPage } from './pages/FolioPage';
 import { ComparePage } from './pages/ComparePage';
 import { SubmitPage } from './pages/SubmitPage';
 import { RMPSubmit } from './components/RMPSubmit';
+import {FolioEdit} from './components/FolioEdit';
 
 /*
 Router Paths 
@@ -46,7 +47,10 @@ const router = createBrowserRouter([
     path: "RMPSubmit",
     element: <RMPSubmit/>
   },
-
+  {
+    path: "FolioEdit",
+    element: <FolioEdit/>
+  }
   
 ]);
 

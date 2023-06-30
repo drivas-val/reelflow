@@ -58,6 +58,19 @@ export let Slide = (props:SlideProps) => {
 
     const [folioListDisabled, setFolioDisabled] = useState<boolean>(false);
 
+    const result = folioList.map((o) => ({ ...o, 
+    overall_personal: "0", 
+    originality: "0", 
+    creativity: "0", 
+    plot: "0", 
+    pacing: "0", 
+    structure: "0", 
+    characters: "0", 
+    cinematography: "0", 
+    entertainment: "0"}));
+
+    console.log(result)
+
     
     
     useEffect(() =>{

@@ -291,3 +291,31 @@ Folio Page
 .selectStyle{
     color: black;
 }
+
+.folioEditStyle{
+    background-color: black;
+    height: fit-content
+}
+
+.compareSearch{
+    background-color: #D3D3D3;
+    width: 150px;
+    height: 40px;
+    border-width: 2px;
+    border-color: #DC143C;
+    outline: none;
+}
+
+.compareFlex{
+    margin-top: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.vs{
+    color: #DC143C;
+    font-size: 20px;
+}
