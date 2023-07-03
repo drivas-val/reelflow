@@ -15,7 +15,7 @@ export let Header = (props:HeaderProps) => {
             <a className="titleStyle" href="/">{props.title}</a>
             <a className="navBarStyle" href='/folio'> Folio </a>
             <a className="navBarStyle" href='/RMP'> RMP </a>
-            <a className="navBarStyle" href='/compare'> Compare </a>
+            <a className="navBarStyle" href='/Compare'> Compare </a>
             <Search/>
         </div>
     )

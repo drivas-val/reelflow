@@ -17,12 +17,15 @@ import { ComparePage } from './pages/ComparePage';
 import { SubmitPage } from './pages/SubmitPage';
 import { RMPSubmit } from './components/RMPSubmit';
 import {FolioEdit} from './components/FolioEdit';
+import { ComparePageOne } from './pages/ComparePageOne';
+import { ComparePageTwo } from './pages/ComparePageTwo';
 
 /*
 Router Paths 
 */
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
   {
     path: "/",
     element: <Body/>,
@@ -50,6 +53,14 @@ const router = createBrowserRouter([
   {
     path: "FolioEdit",
     element: <FolioEdit/>
+  },
+  {
+    path: "ComparePageOne",
+    element: <ComparePageOne/>
+  },
+  {
+    path: "ComparePageTwo",
+    element: <ComparePageTwo/>
   }
   
 ]);
