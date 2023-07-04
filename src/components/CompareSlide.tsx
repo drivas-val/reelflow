@@ -81,9 +81,8 @@ export let CompareSlide = (props:SlideProps) => {
     return(
         <div>
             <div key={movs[0].title} className='overlayPos'>
-                    <img className='posterStyle' src={`https://image.tmdb.org/t/p/w1280${movs[0].poster_path}`} alt="/"/>
+                    <img className='comparePoster' src={`https://image.tmdb.org/t/p/w1280${movs[0].poster_path}`} alt="/"/>
                     <div className='imageOverlay'>
-                            <button onClick={(e) => handleClickRemove(e, movs[0].id)} className="removeButton" type="button">X</button>
                             <p className='overlayName'>{movs[0].title || movs[0].name}</p>
                             <p className='overlayDate'>Release Date: {movs[0].release_date || movs[0].first_air_date}</p>
                             <p className='overlayRating'>Rating: {Number(movs[0].vote_average).toPrecision(2)}</p>

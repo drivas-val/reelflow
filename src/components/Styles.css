@@ -10,6 +10,10 @@ Header Content
     font-weight: bold;
 }
 
+.titleStyle:hover{
+    color:red
+}
+
 .searchStyle{
     background-color: #D3D3D3;
     width: 60%;
@@ -17,6 +21,7 @@ Header Content
     height: 20px;
     border: none;
     outline: none;
+    text-indent: 3%;
 }
 
 .navBarStyle{
@@ -31,7 +36,12 @@ Header Content
     margin-left: 10px;
     text-decoration: none;
     padding: .5%;
+}
 
+.navBarStyle:hover{
+    transition: all .5s;
+    transform: scale(1);
+    opacity: .7;
 }
 
 .headerStyle{
@@ -304,10 +314,11 @@ Folio Page
     border-width: 2px;
     border-color: #DC143C;
     outline: none;
+    font-size: 12px;
 }
 
 .compareFlex{
-    margin-top: 20%;
+    margin-top: 10%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -318,4 +329,38 @@ Folio Page
 .vs{
     color: #DC143C;
     font-size: 20px;
+}
+
+.restartFlex{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.restartButton {
+    color: white;
+    font-size: 15px;
+    background-color: red;
+    border: none;
+    border-radius: 4vmin;
+}
+
+.compareGo {
+    outline: none;
+    font-weight: 500;
+    width:fit-content;
+    color: #DC143C;
+    background: transparent;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: 1px solid #DC143C;
+    margin-left: 30%;
+    text-decoration: none;
+    padding: .5%;
+}
+
+.comparePoster {
+    width: 250px;
+    padding: 10px;
+    border: 2px solid #DC143C;
 }

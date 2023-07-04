@@ -1,5 +1,5 @@
 import "./Styles.css"
-import {useContext, FormEvent, useState, useEffect} from 'react'
+import {useContext, FormEvent, useState, useEffect, MouseEvent} from 'react'
 import {GlobalContext} from '../context/GlobalState'
 import {Header} from '../components/Header'
 import { MovieType } from '../components/Slide';
@@ -15,6 +15,7 @@ type SearchProps = {
 
 export let CompareOne = (props:SearchProps) => {
     let [input, setInput] = useState("");
+    const { addCompare, compareList, removeCompare} = useContext(GlobalContext)
 
     let navigate = useNavigate()
 
@@ -34,6 +35,22 @@ export let CompareOne = (props:SearchProps) => {
         window.location.reload()
     }
 
+    const handleClickRemove = (event:MouseEvent<HTMLButtonElement>, movId: number) => {
+        event.preventDefault()
+        // const movie = compareList.find((m) => m.id == movId);
+        // if (movie) {
+        // removeCompare(compareList[0])  
+        // navigate("/Compare")
+        // window.location.reload()
+        // } 
+
+        for (let i = 0; i < compareList.length; i++) {
+            removeCompare(compareList[i]) 
+            navigate("/Compare")
+            window.location.reload()
+        }
+    }
+
     return(
             <div className="bodyStyle">
                 <div className='compareFlex'>
@@ -48,8 +65,11 @@ export let CompareOne = (props:SearchProps) => {
                         onChange={(event) => setInput(event.target.value)}
                         className="compareSearch"/>
                         <button type="submit"
-                        className="navBarStyle">GO!</button>
+                        className="compareGo">GO!</button>
                     </form>
+                </div>
+                <div className="restartFlex">
+                    <button onClick={(e) => handleClickRemove(e, compareList[0].id)} className="restartButton" type="button">Restart</button>
                 </div>
             </div>
         )

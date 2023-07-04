@@ -26,7 +26,7 @@ export let ComparePage = () => {
                         onChange={(event) => setInput(event.target.value)}
                         className="compareSearch"/>
                         <button type="submit"
-                        className="navBarStyle">GO!</button>
+                        className="compareGo">GO!</button>
                     </form>
     
                     <h1 className='vs'>vs.</h1>
@@ -37,7 +37,7 @@ export let ComparePage = () => {
                         onChange={(event) => setInput(event.target.value)}
                         className="compareSearch"/>
                         <button type="submit"
-                        className="navBarStyle">GO!</button>
+                        className="compareGo">GO!</button>
                     </form>
                 </div>
             </div>

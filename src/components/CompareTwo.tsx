@@ -26,12 +26,11 @@ export let CompareTwo = (props:SearchProps) => {
 
     const handleClickRemove = (event:MouseEvent<HTMLButtonElement>, movId: number) => {
         event.preventDefault()
-        const movie = compareList.find((m) => m.id == movId);
-        if (movie) {
-        removeCompare(compareList[0])  
-        navigate("/Compare")
-        window.location.reload()
-        } 
+        for (let i = 0; i < compareList.length; i++) {
+            removeCompare(compareList[i]) 
+            navigate("/Compare")
+            window.location.reload()
+        }
     }
 
 
@@ -44,17 +43,17 @@ export let CompareTwo = (props:SearchProps) => {
                     <h1 className='vs'>vs.</h1>
      
                     <div key={compareList[0].title} className='overlayPos'>
-                    <img className='posterStyle' src={`https://image.tmdb.org/t/p/w1280${compareList[0].poster_path}`} alt="/"/>
+                    <img className='comparePoster' src={`https://image.tmdb.org/t/p/w1280${compareList[0].poster_path}`} alt="/"/>
                     <div className='imageOverlay'>
-                            <button onClick={(e) => handleClickRemove(e, compareList[0].id)} className="removeButton" type="button">X</button>
                             <p className='overlayName'>{compareList[0].title || compareList[0].name}</p>
                             <p className='overlayDate'>Release Date: {compareList[0].release_date || compareList[0].first_air_date}</p>
                             <p className='overlayRating'>Rating: {Number(compareList[0].vote_average).toPrecision(2)}</p>
                             <p className='overlayDescription'> Description: {compareList[0].overview} </p>
-
-                        </div>
                     </div>
-
+                    </div>
+                </div>
+                <div className="restartFlex">
+                    <button onClick={(e) => handleClickRemove(e, compareList[0].id)} className="restartButton" type="button">Restart</button>
                 </div>
             </div>
         )
