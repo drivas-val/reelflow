@@ -6,6 +6,7 @@ import "./Styles.css"
 import Select from 'react-select'
 import { ratingOptions, OptionType } from './ratingOption'
 import {SingleValue} from 'react-select'
+import { Footer } from './Footer';
 
 /*
 Contains movie attributes including 
@@ -25,7 +26,7 @@ export type MovieType = {
     idNum: number
 
     overall_personal: string | undefined
-    orginality: string | undefined
+    originality: string | undefined
     creativity: string | undefined 
     plot: string | undefined
     pacing: string | undefined
@@ -51,58 +52,7 @@ export let FolioBody = () => {
 
     const navigate =  useNavigate()
 
-    // const customStyles = {
-    //     container: (provided:any) => ({
-    //       ...provided,
-    //       display: 'inline-block',
-    //       width: '35px',
-    //       minHeight: '1px',
-    //       textAlign: 'left',
-    //       border: 'none',
-    //     }),
-    //     //size of container
-    //     control: (provided:any) => ({
-    //       ...provided,
-    //       border: '2px solid #757575',
-    //       borderRadius: '0',
-    //       minHeight: '1px',
-    //       height: '25px',
-    //     }),
-    //     input: (provided:any) => ({
-    //       ...provided,
-    //       minHeight: '1px',
-    //     }),
-    //     dropdownIndicator: (provided:any) => ({
-    //       ...provided,
-    //       minHeight: '0px',
-    //       paddingTop: '0',
-    //       paddingBottom: '0',
-    //       color: 'black',
-    //     }),
-    //     //Line in between
-    //     indicatorSeparator: (provided:any) => ({
-    //       ...provided,
-    //       minHeight: '0px',
-    //       height: '0px',
-    //     }),
-    //     clearIndicator: (provided:any) => ({
-    //       ...provided,
-    //       minHeight: '0px',
-    //     }),
-    //     valueContainer: (provided:any) => ({
-    //       ...provided,
-    //       minHeight: '1px',
-    //       height: '20px',
-    //       paddingTop: '0',
-    //       paddingBottom: '0',
-    //     }),
-    //     singleValue: (provided:any) => ({
-    //       ...provided,
-    //       minHeight: '1px',
-    //       paddingBottom: '2px',
-    //     }),
-    //   };
-
+    
     const handleClickRemove = (event:MouseEvent<HTMLButtonElement>, movId: number) => {
         event.preventDefault()
         const movie = folioList.find((m) => m.id == movId);
@@ -119,34 +69,23 @@ export let FolioBody = () => {
         window.location.reload()
     }
 
-    // const handleChange = (selectedRating:SingleValue<OptionType>) => {        
-    //     console.log(selectedRating?.value)
-    // }
+    
+    type RatingType = {
+        title: string
+        key: keyof MovieType
+    }
 
-    //in originality if i add a function (handleChangeRating) to the defaultValue it will break
-    // const handleChangeRating = (selectedRating:SingleValue<OptionType>, movID:number) => {   
-        //(mov.originality != null) ? ratingOptions[ratingOptions.indexOf(mov.originality)] : ratingOptions[0]
-    //     let movieIndex = 0;
+    const ratings: RatingType[] = [
+        { title: 'Originality', key: 'originality' },
+        { title: 'Creativity', key: 'creativity'},
+        { title: 'Plot', key: 'plot'},
+        { title: 'Pacing', key: 'pacing'},
+        { title: 'Structure', key: 'structure'},
+        { title: 'Characters', key: 'characters'},
+        { title: 'Cinematography', key: 'cinematography'},
+        { title: 'Entertainmnet', key: 'entertainment'}
+    ];
 
-    //     for (let i = 0; i < folioList.length; i++){
-    //         if (folioList[i].id === movID){
-    //             console.log(i)
-    //         }
-    //         else{
-    //             return(ratingOptions[0])
-    //         }
-    //     }
-    //     for (let j = 0; j < ratingOptions.length; j++){
-    //         if (ratingOptions[j].value === folioList[movieIndex].originality){
-    //             return(ratingOptions[j])
-    //         }
-    //         else{
-    //             return(ratingOptions[0])
-    //         }
-    //     }
-    // }
-
-    //If the folio is empty
     if (folioList.length == 0){
         return(
             <div>
@@ -154,9 +93,7 @@ export let FolioBody = () => {
             </div>
 
         )
-    }
-
-    else{
+    } else {
         return(
             <div>
             <h3 className='sliderTitle'>Your Folio</h3>  
@@ -171,15 +108,19 @@ export let FolioBody = () => {
                             </div>
                             <p className='overlayName'>{mov.title || mov.name}</p>
                             <p className='overlayRating'> Community Rating: {Number(mov.vote_average).toPrecision(2)}</p>
-                            <p className='overlayRating'> Overall Personal Rating: </p>
-                            <p className='overlayRating'> Originality: {mov.originality}</p>
-                            <p className='overlayRating'> Creativity: {mov.creativity}</p>
-                            <p className='overlayRating'> Plot: {mov.plot} </p>
-                            <p className='overlayRating'> Pacing: {mov.pacing}</p>
-                            <p className='overlayRating'> Structure: {mov.structure}</p>
-                            <p className='overlayRating'> Characters: {mov.characters}</p>
-                            <p className='overlayRating'> Cinematography: {mov.cinematography}</p>
-                            <p className='overlayRating'> Entertainment: {mov.entertainment}</p>
+                            <p className='overlayRating'> Overall Personal Rating: {
+                            ((Number(mov.originality!=undefined  ? mov.originality : 0) 
+                            + Number(mov.creativity!=undefined  ? mov.creativity : 0) 
+                            + Number(mov.originality!=undefined  ? mov.originality : 0) 
+                            + Number(mov.plot!=undefined  ? mov.plot : 0)
+                            + Number(mov.pacing!=undefined  ? mov.pacing : 0)
+                            + Number(mov.structure!=undefined  ? mov.structure : 0)
+                            + Number(mov.characters!=undefined  ? mov.characters : 0)
+                            + Number(mov.cinematography!=undefined  ? mov.cinematography : 0)
+                            + Number(mov.entertainment!=undefined  ? mov.entertainment : 0)) / 9).toPrecision(2)}</p>
+                            {ratings.map((rating, i) => (
+                                <p key={`${rating.key}-${i}`} className='overlayRating'>{rating.title}: {mov[rating.key]}</p>
+                            ))}
                             </div>
                     </div>
                 ))}

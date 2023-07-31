@@ -8,6 +8,7 @@ type initialStateType = {
     compareList: MovieType[];
     addMovie: (movie:any) => void;
     removeMovie: (movie:any) => void;
+    updateMovie: (id:number, key:keyof MovieType, value:any) => void;
     addCompare: (movie:any) => void;
     removeCompare: (movie:any) => void;
 }
@@ -18,6 +19,7 @@ const initialState: initialStateType = {
     compareList: localStorage.getItem('compareList') ? JSON.parse(localStorage.getItem('compareList') as string) : [],
     addMovie: (movie:any) => {},
     removeMovie: (movie:any) => {},
+    updateMovie: (id:number, key:keyof MovieType, value:any) => {},
     addCompare: (movie:any) => {},
     removeCompare: (movie:any) => {},
 }
@@ -45,6 +47,10 @@ export const GlobalProvider = (props:any) => {
         dispatch({type: "REMOVE_MOVIE", payload: movie})
     }
 
+    const updateMovie = (id:number, key:keyof MovieType, value:any) => {
+        dispatch({type: "UPDATE_MOVIE", payload: { id, key, value }})
+    }
+
     const addCompare = (movie:any) => {
         dispatch({type: "ADD_COMPARE", payload: movie})
     }
@@ -60,6 +66,7 @@ export const GlobalProvider = (props:any) => {
             compareList: state.compareList,
             addMovie,
             removeMovie,
+            updateMovie,
             addCompare,
             removeCompare,
             }}>

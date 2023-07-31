@@ -19,6 +19,15 @@ export default (state:any, action:any) => {
                 ...state,
                 folioList: state.folioList.filter((movie:MovieType) => movie.id !== action.payload.id),
             };
+        case "UPDATE_MOVIE":
+            console.log('update movie');
+            const { id, key, value } = action.payload;
+            const movie = state.folioList.find((m:any) => m.id === id);
+            movie![key] = value;
+            return{
+                ...state,
+                folioList: [...state.folioList],
+            };
         case "ADD_COMPARE":
             console.log('add compare');
             return {

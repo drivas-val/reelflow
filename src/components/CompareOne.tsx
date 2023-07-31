@@ -19,6 +19,7 @@ export let CompareOne = (props:SearchProps) => {
 
     let navigate = useNavigate()
 
+    //create a default sourceString if its not real
 
     let name = props.input;
     let encodedName = encodeURIComponent(name);

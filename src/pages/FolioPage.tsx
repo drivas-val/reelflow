@@ -10,6 +10,7 @@ export let FolioPage = () => {
         <div className="bodyStyle">
             <Header title="Reel Flow"/>
             <FolioBody/>
+            
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import "./Styles.css"
-import {useState, useEffect, FormEvent, useContext, MouseEvent, useRef, memo} from 'react' 
-import {BsFillBookmarkFill} from 'react-icons/bs'
+import {useState, useEffect, useContext, MouseEvent} from 'react' 
 import {GlobalContext} from '../context/GlobalState'
 import { useNavigate } from 'react-router-dom';
+import { Alert } from '@mui/material';
 
 
 
@@ -59,7 +59,8 @@ export let CompareSlide = (props:SlideProps) => {
     }, [])
 
     if (movs.length === 0) {
-        return null;
+        navigate("/Compare")
+        return(null)
     }
 
     if (compareList.length == 0){
@@ -76,6 +77,8 @@ export let CompareSlide = (props:SlideProps) => {
         window.location.reload()
         } 
     }
+
+
     
     
     return(

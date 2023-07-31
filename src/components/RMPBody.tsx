@@ -1,12 +1,10 @@
 import "./Styles.css"
-import {Slide} from '../components/Slide'
 import {genres, OptionType} from '../components/genres'
 import {languages} from '../components/languages'
 import Select from 'react-select'
 import {SingleValue} from 'react-select'
-import {useState, FormEvent, useEffect } from 'react'
+import {useState, FormEvent} from 'react'
 import { useNavigate } from "react-router-dom";
-import { PassThrough } from "stream"
 import Switch from "./Switch"
   
 type ParamType = {
@@ -24,8 +22,18 @@ export let RMPBody = () => {
     const [param, setParam] = useState<ParamType>({});
     let [input, setInput] = useState("");
     const [isToggled, setIsToggled] = useState(false)
-
     const navigate =  useNavigate()
+
+    function customTheme(theme:any) {
+        return {
+            ...theme, 
+            colors: {
+                ...theme.colors,
+                primary25: "indianred", 
+                primary: "indianred"
+            }
+        }
+    }
 
     const handleChangeGenre = (selectedGenre:SingleValue<OptionType>) => {        
         console.log(selectedGenre?.value)
@@ -76,9 +84,9 @@ export let RMPBody = () => {
     return(
         <div className="bodyStyle">
                 <h1 className="sliderTitle">Genre</h1>
-                <Select options={genres} closeMenuOnSelect={true} onChange={handleChangeGenre} defaultValue={genres[0]}></Select>
+                <Select theme={customTheme} options={genres} closeMenuOnSelect={true} onChange={handleChangeGenre} defaultValue={genres[0]}></Select>
                 <h1 className="sliderTitle">Original Language</h1>
-                <Select options={languages} closeMenuOnSelect={true} onChange={handleChangeLanguage} defaultValue={languages[0]}></Select>
+                <Select theme={customTheme}  options={languages} closeMenuOnSelect={true} onChange={handleChangeLanguage} defaultValue={languages[0]}></Select>
                 <h1 className="sliderTitle">Release Year</h1>
                 <input type="text" 
                 placeholder="Search Here..." 
@@ -89,7 +97,7 @@ export let RMPBody = () => {
                 <Switch isToggled={isToggled} onToggle={() => setIsToggled(!isToggled)}/>
 
             <form onSubmit={handleSubmit}>
-                <button type="submit">GO!</button>
+                <button className="bottomSubmit" type="submit">Submit!</button>
             </form>
             
         </div>
