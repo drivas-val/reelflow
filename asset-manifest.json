@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/reelflow/static/css/main.8ce42a93.css",
-    "main.js": "/reelflow/static/js/main.a7369522.js",
-    "static/js/787.2b06c45a.chunk.js": "/reelflow/static/js/787.2b06c45a.chunk.js",
-    "index.html": "/reelflow/index.html",
-    "main.8ce42a93.css.map": "/reelflow/static/css/main.8ce42a93.css.map",
-    "main.a7369522.js.map": "/reelflow/static/js/main.a7369522.js.map",
-    "787.2b06c45a.chunk.js.map": "/reelflow/static/js/787.2b06c45a.chunk.js.map"
+    "main.css": "/static/css/main.8ce42a93.css",
+    "main.js": "/static/js/main.c94913a4.js",
+    "static/js/787.2b06c45a.chunk.js": "/static/js/787.2b06c45a.chunk.js",
+    "index.html": "/index.html",
+    "main.8ce42a93.css.map": "/static/css/main.8ce42a93.css.map",
+    "main.c94913a4.js.map": "/static/js/main.c94913a4.js.map",
+    "787.2b06c45a.chunk.js.map": "/static/js/787.2b06c45a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8ce42a93.css",
-    "static/js/main.a7369522.js"
+    "static/js/main.c94913a4.js"
   ]
 }
