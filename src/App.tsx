@@ -4,6 +4,8 @@ import './components/Styles.css'
 import {Header} from './components/Header'
 import {Body} from './components/Body'
 import { GlobalProvider } from './context/GlobalState';
+import { HashRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 
 import {
   createBrowserRouter,
@@ -24,42 +26,42 @@ import { ComparePageTwo } from './pages/ComparePageTwo';
 Router Paths 
 */
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   [
   {
     path: "/",
     element: <Body/>,
   },
   {
-    path: "RMP",
+    path: "/RMP",
     element: <RMPPage/>
   },
   {
-    path: "Folio",
+    path: "/Folio",
     element: <FolioPage/>
   },
   {
-    path: "Compare",
+    path: "/Compare",
     element: <ComparePage/>
   },
   {
-    path: "SubmitPage",
+    path: "/SubmitPage",
     element: <SubmitPage/>
   },
   {
-    path: "RMPSubmit",
+    path: "/RMPSubmit",
     element: <RMPSubmit/>
   },
   {
-    path: "FolioEdit",
+    path: "/FolioEdit",
     element: <FolioEdit/>
   },
   {
-    path: "ComparePageOne",
+    path: "/ComparePageOne",
     element: <ComparePageOne/>
   },
   {
-    path: "ComparePageTwo",
+    path: "/ComparePageTwo",
     element: <ComparePageTwo/>
   }
   
